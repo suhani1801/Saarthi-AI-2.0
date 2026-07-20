@@ -61,12 +61,26 @@ export default function App() {
       }}
     >
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
-        <h1 style={{ fontSize: "3rem", marginBottom: "0.5rem" }}>
+        <h1
+          style={{
+            fontSize: "3.3rem",
+            fontWeight: "700",
+            color: "#1e3a8a",
+            marginBottom: "0.5rem",
+          }}
+        >
           Saarthi AI 2.0
         </h1>
-
-        <p style={{ color: "#cbd5e1", marginBottom: "2rem" }}>
-          Inclusive AI-powered Government Scheme Recommendation Platform
+        <p
+          style={{
+            color: "#475569",
+            marginBottom: "2rem",
+            fontSize: "1.1rem",
+            lineHeight: "1.6",
+          }}
+        >
+          Inclusive AI-powered Government
+          Scheme Recommendation Platform
         </p>
 
         {/* Accessibility Bar */}
@@ -102,9 +116,11 @@ export default function App() {
         {/* Form */}
         <div
           style={{
-            background: "white",
+            background: "#ffffff",
             padding: "2rem",
             borderRadius: "16px",
+            border: "1px solid #e2e8f0",
+            boxShadow: "0 10px 25px rgba(0, 0, 0, 0.08)",
           }}
         >
           <h2>Check Your Eligibility</h2>
@@ -138,9 +154,12 @@ export default function App() {
           <div
             style={{
               marginTop: "2rem",
-              background: "#052e16",
+              background: "#eff6ff",
+              border: "2px solid #2563eb",
+              color: "#1e293b",
               padding: "1.5rem",
               borderRadius: "16px",
+              boxShadow: "0 8px 20px rgba(37, 99, 235, 0.15)",
             }}
           >
             <h2>Recommended Scheme</h2>
@@ -162,7 +181,8 @@ export default function App() {
               🔊 Read Aloud
             </button>
           </div>
-        )}
+        )
+        }
 
         {/* Features */}
         <div
@@ -178,8 +198,8 @@ export default function App() {
           <Feature title="Multilingual" desc="Hindi, Marathi, English" />
           <Feature title="Offline Ready" desc="Local caching for rural users" />
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 
@@ -187,13 +207,15 @@ function Feature({ title, desc }) {
   return (
     <div
       style={{
-        background: "white",
+        background: "#ffffff",
         padding: "1.2rem",
         borderRadius: "12px",
+        border: "1px solid #e2e8f0",
+        boxShadow: "0 6px 16px rgba(0,0,0,0.06)",
       }}
     >
       <h3>{title}</h3>
-      <p style={{ color: "#cbd5e1" }}>{desc}</p>
+      <p style={{ color: "#64748b" }}>{desc}</p>
     </div>
   );
 }
@@ -207,10 +229,11 @@ const input = {
 };
 
 const btn = {
-  background: "#334155",
+  background: "#2563eb",
   color: "white",
   border: "none",
-  padding: "0.7rem 1rem",
+  padding: "0.75rem 1rem",
   borderRadius: "10px",
   cursor: "pointer",
+  fontWeight: "600",
 }; 
