@@ -28,8 +28,8 @@ export default function App() {
     <div
       style={{
         fontFamily: "Arial, sans-serif",
-        background: "#0f172a",
-        color: "white",
+        background: "#f8fafc",
+        color: "#0f172a",
         minHeight: "100vh",
         padding: "2rem",
       }}
@@ -61,7 +61,7 @@ export default function App() {
         {/* Form */}
         <div
           style={{
-            background: "#1e293b",
+            background: "white",
             padding: "2rem",
             borderRadius: "16px",
           }}
@@ -146,7 +146,7 @@ function Feature({ title, desc }) {
   return (
     <div
       style={{
-        background: "#1e293b",
+        background: "white",
         padding: "1.2rem",
         borderRadius: "12px",
       }}
@@ -161,8 +161,8 @@ const input = {
   padding: "0.9rem",
   borderRadius: "10px",
   border: "1px solid #334155",
-  background: "#0f172a",
-  color: "white",
+  background: "white",
+  color: "#0f172a",
 };
 
 const btn = {
