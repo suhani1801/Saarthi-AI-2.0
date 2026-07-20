@@ -2,19 +2,45 @@ import { useState } from "react";
 
 export default function App() {
   const [result, setResult] = useState(null);
-
+  const [highContrast, setHighContrast] = useState(false);
+  const [language, setLanguage] = useState("en");
+  const [vibrationEnabled, setVibrationEnabled] = useState(false);
   const handleCheck = () => {
     setResult({
       scheme: "PM Scholarship Scheme",
       reason:
         "Based on your age, income, and occupation, you may be eligible for education support and scholarship benefits.",
     });
-
     // vibration cue
     if (navigator.vibrate) {
       navigator.vibrate([200, 100, 200]);
     }
   };
+  const handleVoiceInput = () => {
+    alert("🎤 Voice input feature will be available in the next version.");
+  };
+
+  const toggleContrast = () => {
+    setHighContrast(!highContrast);
+    alert("🌓 High contrast mode toggled.");
+  };
+
+  const toggleLanguage = () => {
+    const nextLanguage = language === "en" ? "hi" : "en";
+    setLanguage(nextLanguage);
+    alert(nextLanguage === "hi" ? "🌐 हिंदी मोड सक्रिय" : "🌐 English mode active");
+  };
+
+  const toggleVibration = () => {
+    setVibrationEnabled(!vibrationEnabled);
+
+    if (navigator.vibrate) {
+      navigator.vibrate([200, 100, 200]);
+    }
+
+    alert("📳 Vibration mode toggled.");
+  };
+
 
   const speakResult = () => {
     if (!result) return;
@@ -52,10 +78,25 @@ export default function App() {
             flexWrap: "wrap",
           }}
         >
-          <button style={btn}>🎤 Voice Input</button>
-          <button style={btn}>🌗 High Contrast</button>
-          <button style={btn}>🌍 हिंदी / मराठी</button>
-          <button style={btn}>📳 Vibration Mode</button>
+          <button style={btn}
+            onClick={handleVoiceInput}>
+            🎤 Voice Input
+          </button>
+
+          <button style={btn}
+            onClick={toggleContrast}>
+            🌗 High Contrast
+          </button>
+
+          <button style={btn}
+            onClick={toggleLanguage}>
+            🌍 {language === "en" ? "Hindi / Marathi" : "English"}
+          </button>
+
+          <button style={btn}
+            onClick={toggleVibration}>
+            📳 Vibration Mode
+          </button>
         </div>
 
         {/* Form */}
@@ -172,4 +213,4 @@ const btn = {
   padding: "0.7rem 1rem",
   borderRadius: "10px",
   cursor: "pointer",
-};
+}; 
