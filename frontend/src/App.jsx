@@ -6,12 +6,39 @@ export default function App() {
   const [language, setLanguage] = useState("en");
   const [vibrationEnabled, setVibrationEnabled] = useState(false);
   const handleCheck = () => {
-    setResult({
-      scheme: "PM Scholarship Scheme",
-      reason:
-        "Based on your age, income, and occupation, you may be eligible for education support and scholarship benefits.",
-    });
-    // vibration cue
+    const age = parseInt(document.getElementById('age')?.value || '0');
+    const income = parseInt(document.getElementById('income')?.value || '0');
+    const occupation = (document.getElementById('occupation')?.value || '').toLowerCase();
+
+    let recommendation = {
+      scheme: 'National Scholarship Portal',
+      reason: 'Based on your profile, you may be eligible for education and scholarship support programs.',
+    };
+
+    if (occupation.includes('farmer')) {
+      recommendation = {
+        scheme: 'PM-KISAN Samman Nidhi',
+        reason: 'Farmer support schemes may be applicable based on your occupation.',
+      };
+    } else if (occupation.includes('student') && income < 800000) {
+      recommendation = {
+        scheme: 'PM Scholarship Scheme',
+        reason: 'Students with family income below the scholarship threshold may qualify for educational financial assistance.',
+      };
+    } else if (income < 300000) {
+      recommendation = {
+        scheme: 'Ayushman Bharat',
+        reason: 'Low-income households may be eligible for government healthcare coverage and welfare benefits.',
+      };
+    } else if (age >= 18 && age <= 35) {
+      recommendation = {
+        scheme: 'PM Mudra Yojana',
+        reason: 'Young adults seeking self-employment or small business opportunities may qualify for Mudra support.',
+      };
+    }
+
+    setResult(recommendation);
+
     if (navigator.vibrate) {
       navigator.vibrate([200, 100, 200]);
     }
@@ -126,12 +153,11 @@ export default function App() {
           <h2>Check Your Eligibility</h2>
 
           <div style={{ display: "grid", gap: "1rem", marginTop: "1rem" }}>
-            <input placeholder="Age" style={input} />
-            <input placeholder="State" style={input} />
-            <input placeholder="Annual Income" style={input} />
-            <input placeholder="Occupation" style={input} />
-            <input placeholder="Category" style={input} />
-
+            <input placeholder="Age" style={input} id="age" />
+            <input placeholder="State" style={input} id="state" />
+            <input placeholder="Annual Income" style={input} id="income" />
+            <input placeholder="Occupation" style={input} id="occupation" />
+            <input placeholder="Category" style={input} id="category" />
             <button
               onClick={handleCheck}
               style={{
