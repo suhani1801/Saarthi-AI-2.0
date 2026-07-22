@@ -33,15 +33,9 @@ Saarthi AI 2.0 provides personalized scheme recommendations using an accessibili
 ## Architecture
 React → Node.js → FastAPI → Supabase
 
-## Run Locally
+## 🚀 Live Demo
 
-bash
-cd frontend
-npm install
-npm run dev
-
-
-Open: http://localhost:5173
+👉 **[Launch Saarthi AI 2.0](https://saarthi-ai-2-0.vercel.app)**
 
 ## Future Enhancements
 - Speech-to-text form filling
